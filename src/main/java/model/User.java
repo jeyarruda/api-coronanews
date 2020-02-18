@@ -1,13 +1,20 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="user")
 public class User {
 	private int id; 
-	private String nome; 
+	private String name; 
 	private String email; 
-	private String senha; 
+	private String password; 
 	private boolean isAdmin;
 	
 	
+	@Id
+	@GeneratedValue
+	@Column(name="user_id")
 	public int getId() {
 		return id;
 	}
@@ -17,38 +24,38 @@ public class User {
 	}
 	
 	
-	public String getNome() {
-		return nome;
+	@Column(name="user_name", nullable=false)
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	
+	@Column(name="user_email", nullable=false)
 	public String getEmail() {
 		return email;
 	}
-	
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	
-	
-	public String getSenha() {
-		return senha;
+	@Column(name="user_password", nullable=false)
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	
-	
+	@Column(name="user_admin", nullable=false)
 	public boolean isAdmin() {
 		return isAdmin;
 	}
-	
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
-	} 
+	}
+	
+	
+	
 }
